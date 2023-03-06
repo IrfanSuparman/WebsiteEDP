@@ -30,3 +30,22 @@ function registrasi($data) {
 
 	return mysqli_affected_rows($koneksi);
 }
+
+
+function lupas($data) {
+	global $koneksi;
+
+	$nik = strtolower(stripslashes($data["nik"]));
+	$password = mysqli_real_escape_string($koneksi, $data["password"]);
+
+
+	
+
+	// enkripsi password
+	$password = password_hash($password, PASSWORD_DEFAULT);
+
+	// tambahkan user ke database
+	mysqli_query($koneksi, "UPDATE user SET password ='$password' where nik = '$nik'");
+
+	return mysqli_affected_rows($koneksi);
+}
