@@ -64,7 +64,7 @@
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row["password"])) {
 
-        $_SESSION["login"] = true;
+        $_SESSION["nama"] = $row['nama'];
 
         if( isset($_POST['checkbox'])) {
         setcookie('id', $row['id'], time() + 60);
