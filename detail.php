@@ -2,7 +2,7 @@
 session_start();
 
 
-    if (!isset($_SESSION["login"])) {
+    if (!isset($_SESSION["nama"])) {
       header("location: loginregister.php");
       exit;
     }
