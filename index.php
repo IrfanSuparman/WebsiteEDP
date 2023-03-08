@@ -2,7 +2,7 @@
 session_start();
 
 
-    if (!isset($_SESSION["login"])) {
+    if (!isset($_SESSION["nama"])) {
       header("location: loginregister.php");
       exit;
     }
@@ -261,7 +261,9 @@ session_start();
       <div class="home-page">
         <div class="container">
             <div class="text-box">
-              <span class="text first-text">Halo Edp</span>
+              <span class="text first-text">Halo <?php
+                echo $_SESSION['nama'];
+              ?></span>
               <span class="text first-text">Selamat Datang di</span>
               <span class="text sec-text">Website EDP Jakarta 2</span>
             </div>
